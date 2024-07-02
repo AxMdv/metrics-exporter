@@ -11,7 +11,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promauto"
 )
 
 type Handlers struct {
@@ -20,68 +19,68 @@ type Handlers struct {
 }
 
 var (
-	CurrentTasks = promauto.NewGauge(
-		prometheus.GaugeOpts{
-			Name: "task_in_process",
-			Help: "Current number of tasks in process",
-		})
+	// CurrentTasks = promauto.NewGauge(
+	// 	prometheus.GaugeOpts{
+	// 		Name: "task_in_process",
+	// 		Help: "Current number of tasks in process",
+	// 	})
 
-	CurrentArticles = promauto.NewGauge(
-		prometheus.GaugeOpts{
-			Name: "articles_in_process",
-			Help: "Current number of pending notification",
-		})
+	// CurrentArticles = promauto.NewGauge(
+	// 	prometheus.GaugeOpts{
+	// 		Name: "articles_in_process",
+	// 		Help: "Current number of pending notification",
+	// 	})
 
-	MatchingTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_matching_total",
-			Help: "Total number of matching tasks",
-		})
+	// MatchingTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_matching_total",
+	// 		Help: "Total number of matching tasks",
+	// 	})
 
-	PreloadTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_preload_total",
-			Help: "Total number of slow updates",
-		})
+	// PreloadTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_preload_total",
+	// 		Help: "Total number of slow updates",
+	// 	})
 
-	ImageTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_image_total",
-			Help: "Total number of fast updates",
-		})
+	// ImageTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_image_total",
+	// 		Help: "Total number of fast updates",
+	// 	})
 
-	ReplacedTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_replaced",
-			Help: "Total number of replaced tasks",
-		})
+	// ReplacedTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_replaced",
+	// 		Help: "Total number of replaced tasks",
+	// 	})
 
-	FailedTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_failed",
-			Help: "Total number of failed tasks",
-		})
+	// FailedTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_failed",
+	// 		Help: "Total number of failed tasks",
+	// 	})
 
-	SucceededTasks = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "task_succeeded",
-			Help: "Total number of failed tasks",
-		})
+	// SucceededTasks = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "task_succeeded",
+	// 		Help: "Total number of failed tasks",
+	// 	})
 
-	ProcessCounter = promauto.NewCounter(
-		prometheus.CounterOpts{
-			Name: "process_counter",
-			Help: "Total number of failed tasks",
-		})
+	// ProcessCounter = promauto.NewCounter(
+	// 	prometheus.CounterOpts{
+	// 		Name: "process_counter",
+	// 		Help: "Total number of failed tasks",
+	// 	})
 
-	TaskDurationHistogram = prometheus.NewHistogramVec(
-		prometheus.HistogramOpts{
-			Name:    "task_duration_seconds",
-			Help:    "Tasks duration distribution",
-			Buckets: []float64{15, 30, 60, 90, 120, 240, 480},
-		},
-		[]string{"job_type"},
-	)
+	// TaskDurationHistogram = prometheus.NewHistogramVec(
+	// 	prometheus.HistogramOpts{
+	// 		Name:    "task_duration_seconds",
+	// 		Help:    "Tasks duration distribution",
+	// 		Buckets: []float64{15, 30, 60, 90, 120, 240, 480},
+	// 	},
+	// 	[]string{"job_type"},
+	// )
 
 	EslLabelsTotalMetric = prometheus.NewGauge(
 		prometheus.GaugeOpts{
